@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SqlToMongo
 {
     // this as a parent class to all sql shit or no?
-    class SqlDB : IDatabase
+    class SqlDB //: Database
     {
         //should it be public or private and available only via constructor?
         public void Connect(string connectionString) {}

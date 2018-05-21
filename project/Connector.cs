@@ -8,8 +8,8 @@ namespace SqlToMongo
 {
     class Connector
     {
-        MongoDB mongo;      //or absstract non-sql
-        PostgreSqlDB sql;   //or abstract sql
-
+        MongoDatabase mongo;      //or absstract non-sql
+        PostgreSqlDatabase sql;   //or abstract sql
+        
     }
 }

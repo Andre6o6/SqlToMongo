@@ -15,14 +15,24 @@ using System.Windows.Shapes;
 
 namespace SqlToMongo
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        MongoDatabase mongo;
+        PostgreSqlDatabase sql;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            //todo remove
+            mongo = new MongoDatabase();
+            sql = new PostgreSqlDatabase();
+        }
+
+        private void buttonInspectMongo_Click(object sender, RoutedEventArgs e)
+        {
+            var w = new MongoInspector(mongo);
+            w.ShowDialog();
         }
     }
 }

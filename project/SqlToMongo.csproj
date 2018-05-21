@@ -88,9 +88,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Connector.cs" />
-    <Compile Include="MongoDB.cs" />
-    <Compile Include="PostgreSqlDB.cs" />
+    <Compile Include="MongoDatabase.cs" />
+    <Compile Include="MongoInspector.xaml.cs">
+      <DependentUpon>MongoInspector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PostgreSqlDatabase.cs" />
     <Compile Include="SqlDB.cs" />
+    <Compile Include="SqlInspector.xaml.cs">
+      <DependentUpon>SqlInspector.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -99,11 +105,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="IDatabase.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MongoInspector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SqlInspector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

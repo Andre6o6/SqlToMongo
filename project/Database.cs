@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 
 namespace SqlToMongo
 {
-    interface IDatabase
+    public abstract class Database
     {
-        void Connect(string connectionString);
+        protected abstract void Connect(string connectionString);
 
-        void ExecuteNonQuery(string query);
+        //public abstract void ExecuteNonQuery(string query);
+
         //get data in collection as a collection of rows with type and value info
         //smth like DataTable ExecuteQuery(string query);
 
         //get data in collection entity by entity
         //smth like iEnumerable ExecuteReader(string)
+
+        public abstract List<string> ListDatabases();   //return the list of all dbs on server
+        public abstract List<string> ListTables();      //return the list of all tables/collections in db
+
     }
 }
