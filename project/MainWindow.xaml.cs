@@ -17,6 +17,8 @@ namespace SqlToMongo
 {
     public partial class MainWindow : Window
     {
+        Connector connector;
+        //remove
         MongoDatabase mongo;
         PostgreSqlDatabase sql;
 
@@ -32,6 +34,12 @@ namespace SqlToMongo
         private void buttonInspectMongo_Click(object sender, RoutedEventArgs e)
         {
             var w = new MongoInspector(mongo);
+            w.ShowDialog();
+        }
+
+        private void buttonInspectPostgres_Click(object sender, RoutedEventArgs e)
+        {
+            var w = new SqlInspector(sql);
             w.ShowDialog();
         }
     }

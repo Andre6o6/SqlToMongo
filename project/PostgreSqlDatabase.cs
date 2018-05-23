@@ -80,17 +80,39 @@ namespace SqlToMongo
         
         public override List<string> ListDatabases()
         {
+            //check if not connected to db
+
             var databases = new List<string>();
-            //todo
+
+            var r = ExecuteQueryReader("select datname from pg_database where datistemplate = false");
+            while (r.Read())
+            {
+                databases.Add(r.GetString(0));
+            }
+            r.Close();
+
             return databases;
         }
 
         public override List<string> ListTables()
         {
             var tables = new List<string>();
-            //todo
+
+            var r = ExecuteQueryReader("select table_name from information_schema.tables where table_schema = 'public'");
+            while (r.Read())
+            {
+                tables.Add(r.GetString(0));
+            }
+            r.Close();
+
             return tables;
         }
 
+
+        public DataTable LoadTable(string table)
+        {
+            table = '"' + table + '"';
+            return ExecuteQuery($"SELECT * FROM public.{table}");
+        }
     }
 }

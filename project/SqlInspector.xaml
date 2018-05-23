@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SqlToMongo"
         mc:Ignorable="d"
-        Title="SqlInspector" Height="300" Width="300">
+        Title="SqlInspector" Height="300" Width="634.091">
     <Grid>
-        
+        <ListBox x:Name="listBoxDatabases" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="150"/>
+        <ListBox x:Name="listBoxTables" HorizontalAlignment="Left" Height="100" Margin="165,10,0,0" VerticalAlignment="Top" Width="150"/>
+        <Button x:Name="buttonLoadDbs" Content="load databases" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" Width="150" Click="buttonLoadDbs_Click"/>
+        <Button x:Name="buttonLoadTables" Content="load tables" HorizontalAlignment="Left" Margin="165,110,0,0" VerticalAlignment="Top" Width="150" Click="buttonLoadTables_Click"/>
+        <Label x:Name="label" Content="Result" HorizontalAlignment="Left" Margin="340,0,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dataGridResult" Margin="340,26,10,10"/>
+        <Button x:Name="buttonShowAll" Content="Show all turples" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="150" Click="buttonShowAll_Click"/>
+
     </Grid>
 </Window>

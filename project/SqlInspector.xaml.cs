@@ -19,9 +19,36 @@ namespace SqlToMongo
     /// </summary>
     public partial class SqlInspector : Window
     {
-        public SqlInspector()
+        PostgreSqlDatabase db;
+
+        public SqlInspector(PostgreSqlDatabase db)
         {
             InitializeComponent();
+            this.db = db;
+        }
+
+        private void buttonLoadDbs_Click(object sender, RoutedEventArgs e)
+        {
+            listBoxDatabases.ItemsSource = db.ListDatabases();
+        }
+
+        private void buttonLoadTables_Click(object sender, RoutedEventArgs e)
+        {
+            if (listBoxDatabases.SelectedItem == null)
+                return;
+
+            string database = listBoxDatabases.SelectedItem.ToString();
+            db.ConnectToDatabase(database);
+            listBoxTables.ItemsSource = db.ListTables();
+        }
+
+        private void buttonShowAll_Click(object sender, RoutedEventArgs e)
+        {
+            if (listBoxTables.SelectedItem == null)
+                return;
+
+            string table = listBoxTables.SelectedItem.ToString();
+            dataGridResult.ItemsSource = db.LoadTable(table).DefaultView;
         }
     }
 }
